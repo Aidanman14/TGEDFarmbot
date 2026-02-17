@@ -169,6 +169,8 @@ def farmStages(stages):
             maxCurrentStage += 1
 
             time.sleep(.5)
+        except KeyboardInterrupt:
+            print("Interrupted.")
         except:
             print("Energy depleted OR unknown error.")
             return
@@ -191,11 +193,16 @@ def autoSummon(times, exclusive):
                 print(f"Summon success ({i})")
             else:
                 print("Tickets depleted OR unknown error.")
+                return
 
             time.sleep(.5)
+        except KeyboardInterrupt:
+            print("Interrupted.")
         except:
             print("Tickets depleted OR unknown error.")
             return
+
+
 
 # Generate a simple option choosing interface, then return the user's choice
 def startOptions(options):
@@ -334,6 +341,7 @@ try:
     global nickname, level, maxCurrentStage
     nickname, level, maxCurrentStage = getPlayerDetails()
     mainMenu()
-
+except KeyboardInterrupt:
+    print("Interrupted.")
 except Exception as error:
     print(f"An error occured: {error}")
