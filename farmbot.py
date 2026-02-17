@@ -82,6 +82,7 @@ def getPlayerDetails():
 
 # Very bad auto farming subprogram, VERY VERY scuffed.
 def farmStages(stages):
+    global maxCurrentStage
     if (stages == 0):
         stages = 99999999999999 # lol
     for stage in range(maxCurrentStage, maxCurrentStage + stages):
@@ -110,6 +111,7 @@ def farmStages(stages):
             sessionId = ""
             if (not responseJson["sessionId"]):
                 print("Session Id not found - You might be out of energy!")
+                input("Press enter to continue.")
                 return
                 #quit()
 
@@ -164,6 +166,7 @@ def farmStages(stages):
 
             if (not responseJson["stageSummary"]):
                 print("An error occured")
+                input("Press enter to continue.")
                 return
                 #quit()
             
@@ -287,7 +290,7 @@ def mainMenu():
             continue
         elif (option == "Summon"):
             summonMenu()
-            continue
+            continue 
         elif (option == "Logout"):
             a = False
             logout()
