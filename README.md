@@ -15,6 +15,7 @@ An open-source farmbot written in Python for *The Greatest Estate Dev: Squad TD*
 9. Paste the text into `tokens.txt` and launch the farmbot.  
 
 **Warning:** Do **NOT** open the game while using the farmbot!
+(Sorry for the complicated setup, I don't really know any other way to make this work.)
 
 ## Features
 - Auto-farm stages
