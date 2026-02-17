@@ -180,7 +180,7 @@ def autoSummon(times, exclusive):
     for i in range(1, times+1):
         try:
             json_data = {
-                'count': 1,
+                'count': 10,
                 'isExclusive': exclusive,
             }
             response = requests.post('https://tino.detailgames.ai/tged/gacha/56000/draw', headers=headersPostJson, json=json_data)
