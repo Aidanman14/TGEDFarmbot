@@ -1,6 +1,8 @@
 # TGED Farmbot
 An open-source farmbot written in Python for *The Greatest Estate Dev: Squad TD*.
 
+[Discord](https://discord.gg/fAyes2ErZV)
+
 ## Setup
 **This tutorial currently ONLY supports iOS devices.**
 
