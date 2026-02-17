@@ -109,8 +109,9 @@ def farmStages(stages):
             responseJson = json.loads(response.text)
             sessionId = ""
             if (not responseJson["sessionId"]):
-                print("Session Id not found")
-                quit()
+                print("Session Id not found - You might be out of energy!")
+                return
+                #quit()
 
             sessionId = responseJson["sessionId"]
 
@@ -163,7 +164,8 @@ def farmStages(stages):
 
             if (not responseJson["stageSummary"]):
                 print("An error occured")
-                quit()
+                return
+                #quit()
             
             print(f"Stage {stage} completed.")
             maxCurrentStage += 1
@@ -171,6 +173,7 @@ def farmStages(stages):
             time.sleep(.5)
         except KeyboardInterrupt:
             print("Interrupted.")
+            return
         except:
             print("Energy depleted OR unknown error.")
             return
@@ -198,6 +201,7 @@ def autoSummon(times, exclusive):
             time.sleep(.5)
         except KeyboardInterrupt:
             print("Interrupted.")
+            return
         except:
             print("Tickets depleted OR unknown error.")
             return
