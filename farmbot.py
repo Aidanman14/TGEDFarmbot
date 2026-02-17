@@ -185,7 +185,7 @@ def autoSummon(times, exclusive):
             }
             response = requests.post('https://tino.detailgames.ai/tged/gacha/56000/draw', headers=headersPostJson, json=json_data)
 
-            print(response.text)
+            #print(response.text)
 
             if "success" in response.text:
                 print(f"Summon success ({i})")
