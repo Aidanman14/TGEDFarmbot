@@ -1,27 +1,3 @@
-import requests
-
-## Summoning
-# [[
-#     headers = {
-#     'Host': 'tino.detailgames.ai',
-#     'User-Agent': 'Greatest%20Estate%20Dev%3A%20Squad%20TD/30 CFNetwork/3860.300.31 Darwin/25.2.0',
-#     'x-client-build': gameBuild,
-#     'Connection': 'keep-alive',
-#     'Accept': '*/*',
-#     'Accept-Language': 'en-GB,en;q=0.9',
-#     'Authorization': 'Bearer ' + tokens['accessToken'],
-#     'X-Unity-Version': '2022.3.62f2',
-#     'Content-Type': 'application/json',
-# }
-
-# json_data = {
-#     'count': 1,
-#     'isExclusive': True, # is it exclusive summons
-# }
-
-# response = requests.post('https://tino.detailgames.ai/tged/gacha/56000/draw', headers=headers, json=json_data)
-# ]]
-
 '''
     Hi, I am not familiar with OOP yet, therefore you'll have to stick with this shitty code, sorry!
 
@@ -209,7 +185,7 @@ def autoSummon(times, exclusive):
             }
             response = requests.post('https://tino.detailgames.ai/tged/gacha/56000/draw', headers=headersPostJson, json=json_data)
 
-            #print(response.text)
+            print(response.text)
 
             if "success" in response.text:
                 print(f"Summon success ({i})")
@@ -264,17 +240,17 @@ def summonMenu():
         option = startOptions(["Summon normal X amount of times", "Summon normal until ticket depletion", "Summon exclusive X amount of times", "Summon exclusive until ticket depletion", "Back"])
         if (option == "Summon normal X amount of times"):
             X = int(input("Amount to summon: "))
-            autoSummon(X, False)
+            autoSummon(X, True)
             continue
         elif (option == "Summon exclusive X amount of times"):
             X = int(input("Amount to summon: "))
-            autoSummon(X, True)
+            autoSummon(X, False)
             continue
         elif (option == "Summon normal until ticket depletion"):
-            autoSummon(0, False)
+            autoSummon(0, True)
             continue
         elif (option == "Summon exclusive until ticket depletion"):
-            autoSummon(0, True)
+            autoSummon(0, False)
             continue
         elif (option == "Back"):
             a = False
@@ -361,92 +337,3 @@ try:
 
 except Exception as error:
     print(f"An error occured: {error}")
-
-'''
-for stage in range(93, 200):
-    waves = 20
-
-    if stage % 5 == 0:
-        waves = 30
-
-    # Start stage
-    json_data = {
-        'stage': stage,
-        'deployedCharacters': [
-            4007,
-            4010,
-            4001,
-            4006,
-        ],
-    }
-    response = requests.post('https://tino.detailgames.ai/tged/stages/start', headers=headersPostJson, json=json_data)
-
-    #print(response.text)
-
-    # Gets the session ID of the stage
-    responseJson = json.loads(response.text)
-    sessionId = ""
-    if (not responseJson["sessionId"]):
-        print("Session Id not found")
-        quit()
-
-    sessionId = responseJson["sessionId"]
-
-    print(f"Started stage session ({sessionId}) for stage {stage}")
-
-    json_data = {
-        'stage': stage,
-        'wave': waves,
-        'clearTime': 41207,
-    }
-
-    response = requests.post(
-        'https://tino.detailgames.ai/tged/leaderboard/stages/realtime-rank',
-        headers=headersPostJson,
-        json=json_data,
-    )
-    #print(response.text)
-
-    json_data = {
-        'sessionId': sessionId,
-        'stage': stage,
-        'wave': waves,
-        'clearTime': 358886,
-        'missionId': 0,
-        'characterDamages': [
-            {
-                'characterId': '4010',
-                'totalDamage': '18893266',
-            },
-            {
-                'characterId': '4001',
-                'totalDamage': '22642928',
-            },
-            {
-                'characterId': '4007',
-                'totalDamage': '30343078',
-            },
-            {
-                'characterId': '4006',
-                'totalDamage': '32664713',
-            },
-        ],
-    }
-
-    response = requests.post('https://tino.detailgames.ai/tged/stages/end', headers=headersPostJson, json=json_data)
-
-    #print(response.text)
-
-    responseJson = json.loads(response.text)
-
-    if (not responseJson["stageSummary"]):
-        print("An error occured")
-        quit()
-    
-    print(f"Stage {stage} completed.")
-
-    time.sleep(.5)
-
-
-input("...")
-'''
