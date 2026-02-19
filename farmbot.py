@@ -378,7 +378,7 @@ def login():
     while (a):
         option = startOptions(["Log in using tokens.txt", "Log in using saved token in tokenStorage", "Return"])
         if (option == "Log in using tokens.txt"):
-            print("hello")
+            #print("hello")
             with open(path, "r+") as tokensFile:
                 content = tokensFile.read().strip()
                 if content:
