@@ -4,7 +4,7 @@ An open-source farmbot written in Python for *The Greatest Estate Dev: Squad TD*
 [Discord](https://discord.gg/fAyes2ErZV)
 
 ## Setup
-**This tutorial currently ONLY supports iOS devices.**
+**This tutorial currently should support both android & iOS devices.**
 
 1. Download this repository as a `.zip` file and extract it.  
 2. Download **Proxyman** on your iOS device and set it up.  
