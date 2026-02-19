@@ -22,6 +22,7 @@ global tokens
 tokens = {}
 
 scriptDir = os.path.dirname(os.path.abspath(__file__))
+global path, folderPath
 path = os.path.join(scriptDir, "tokens.txt")
 folderPath = os.path.join(scriptDir, "tokensStorage")
 
@@ -373,16 +374,18 @@ def logout():
 
 def login():
     a = True
+    global path, folderPath
     while (a):
-        global tokens
         option = startOptions(["Log in using tokens.txt", "Log in using saved token in tokenStorage", "Return"])
         if (option == "Log in using tokens.txt"):
+            print("hello")
             with open(path, "r+") as tokensFile:
                 content = tokensFile.read().strip()
                 if content:
+                    global tokens
                     tokens = json.loads(content)
                     mainProgram()
-                    
+
                 else:
                     print("tokens.txt is empty!\nPlease follow the tutorial on GitHub on how to get your tokens!")
                     input("Press enter to continue...")
@@ -515,6 +518,7 @@ def startUpMenu():
 def mainProgram():
     try:
         # Generate new tokens for the player & saves them to a text file
+        global tokens
         tokens = getNewPlayerTokens()
 
         #print(tokens)
@@ -608,8 +612,8 @@ def init():
 
 
         startUpMenu()
-    except:
-        pass
+    except Exception as e:
+        print(e)
 
 
 if __name__ == "__main__":
