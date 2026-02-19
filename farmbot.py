@@ -22,7 +22,10 @@ path = os.path.join(scriptDir, "tokens.txt")
 
 if not os.path.exists(path):
     with open(path, "w") as f:
+        print("tokens.txt was missing, creating file.")
         f.write("{}")
+        input("Press enter to continue...")
+        quit()
 
 with open(path, "r+") as tokensFile:
     content = tokensFile.read().strip()
