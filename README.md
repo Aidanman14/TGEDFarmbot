@@ -23,5 +23,7 @@ An open-source farmbot written in Python for *The Greatest Estate Dev: Squad TD*
 ## Features
 - Auto-farm stages
 - Auto-summon
+- Complete battlepass
+- Sign up for accounts (Experimental feature)
 
 More soon...
