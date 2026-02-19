@@ -317,6 +317,7 @@ def farmStagesMenu():
             continue
         elif (option == "Back"):
             a = False
+            clear()
 
 def summonMenu():
     a = True
@@ -339,6 +340,7 @@ def summonMenu():
             continue
         elif (option == "Back"):
             a = False
+            clear()
 
 def battlePassMenu():
     a = True
@@ -366,6 +368,7 @@ def battlePassMenu():
             continue
         elif (option == "Back"):
             a = False
+            clear()
 
 # There isn't actually an api for "logging out"
 def logout():
@@ -559,6 +562,7 @@ def mainProgram():
 
         global nickname, level, maxCurrentStage
         nickname, level, maxCurrentStage = getPlayerDetails()
+        clear()
         mainMenu()
     except KeyboardInterrupt:
         print("Interrupted.")
